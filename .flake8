@@ -1,0 +1,21 @@
+[flake8]
+max-complexity = 10
+max-line-length = 120
+ignore =
+    # Line break occurred before a binary operator
+    W503,
+exclude =
+    # Directories to be ignored
+    .github,
+    .git,
+    .idea,
+    __pycache__,
+    # File types to be ignored
+    *.json,
+    *.md,
+    *.pyc,
+    *.sh,
+    *.txt,
+    # Files to ignore
+    .flake8,
+    .gitignore,
