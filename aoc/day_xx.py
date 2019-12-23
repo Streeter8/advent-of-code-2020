@@ -1,0 +1,21 @@
+class Aoc:
+    """
+    Template file for solutions
+    """
+    def part_one(self):
+        total = "Not Implemented"
+        print(f"Part 1 Solution: {total}")
+
+    def part_two(self):
+        total = "Not Implemented"
+        print(f"Part 2 Solution: {total}")
+
+
+def main():
+    aoc = Aoc()
+    aoc.part_one()
+    aoc.part_two()
+
+
+if __name__ == "__main__":
+    main()
