@@ -62,7 +62,7 @@ class AocTwo:
                 print(f"Part 2 Solution: {response}")
                 return
 
-        assert False
+        raise Exception("We're not supposed to get here...")
 
     def add(self, *args) -> int:
         return sum(args)
