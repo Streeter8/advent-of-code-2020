@@ -1,9 +1,16 @@
 [flake8]
+application-import-names=aoc
+import-order-style=pycharm
+inline-quotes = "
 max-complexity = 10
 max-line-length = 120
 ignore =
     # Line break occurred before a binary operator
     W503,
+    # missing trailing comma
+    C812,
+    # missing trailing comma in Python 2
+    C814,
 exclude =
     # Directories to be ignored
     .github,
