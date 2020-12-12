@@ -1,3 +1,6 @@
+from timeit import timeit
+
+
 class Aoc:
     """
     Template file for solutions
@@ -13,8 +16,8 @@ class Aoc:
 
 def main():
     aoc = Aoc()
-    aoc.part_one()
-    aoc.part_two()
+    print(f"Part one took {timeit(aoc.part_one, number=1)} seconds to execute")
+    print(f"Part two took {timeit(aoc.part_two, number=1)} seconds to execute")
 
 
 if __name__ == "__main__":
