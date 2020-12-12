@@ -160,10 +160,10 @@ def input_lines():
     # for line in SAMPLE_INPUT_TWO:
     #     yield line.replace("\n", "")
 
-    DIRECTORY = os.path.dirname(os.path.abspath(__file__))
-    INPUT_FILE = "day_04.txt"
+    directory = os.path.dirname(os.path.abspath(__file__))
+    input_file = "day_04.txt"
 
-    input_file_path = os.path.join(DIRECTORY, "inputs", INPUT_FILE)
+    input_file_path = os.path.join(directory, "inputs", input_file)
     with open(input_file_path) as input_file:
         for input_line in input_file:
             yield input_line.replace("\n", "")
@@ -185,7 +185,7 @@ def passport_args_generator():
 
 class AocFour:
     def part_one(self):
-        "~2ms"
+        """~2ms"""
         valid_passports = 0
         for passport_args in passport_args_generator():
             passport = PassportFactory(passport_args).make()
@@ -195,7 +195,7 @@ class AocFour:
         print(f"Part 1 Solution: {valid_passports=}")
 
     def part_two(self):
-        "~3ms"
+        """~3ms"""
         valid_passports = 0
         for passport_args in passport_args_generator():
             passport = PassportFactory(passport_args).make()
