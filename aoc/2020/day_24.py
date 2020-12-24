@@ -87,20 +87,24 @@ class Hexagons:
 
     @property
     def next_day(self):
-        new_hexagons = {}
+        hexagons_assessed = set()
+        hexagons_to_pass = {}
 
         for hexagon in self.hexagons:
             for adjacent_hexagon in self.adjacent_hexagons(hexagon):
-                if adjacent_hexagon in new_hexagons:
+                if adjacent_hexagon in hexagons_assessed:
                     continue
+
+                hexagons_assessed.add(adjacent_hexagon)
 
                 color = self.hexagons.get(adjacent_hexagon, 0)
                 if self.flip_tile(adjacent_hexagon):
-                    new_hexagons[adjacent_hexagon] = int(not color)
-                else:
-                    new_hexagons[adjacent_hexagon] = color
+                    color = int(not color)
 
-        return Hexagons(new_hexagons)
+                if color:
+                    hexagons_to_pass[adjacent_hexagon] = color
+
+        return Hexagons(hexagons_to_pass)
 
     def flip_tile(self, point: str) -> bool:
         current_tile_is_black = self.hexagons.get(point, 0)
@@ -205,6 +209,7 @@ class AocTwentyFour:
                     yield input_line.replace("\n", "")
 
     def part_one(self):
+        """2.5s"""
         hexagons = Hexagons.from_line_generator(self.line_generator())
         assert self.part_one_expected_result == hexagons.number_of_black_tiles
         print(f"Part 1 solution: {hexagons.number_of_black_tiles}")
