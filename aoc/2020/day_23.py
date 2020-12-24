@@ -48,7 +48,7 @@ class AocTwentyThree:
                 print(f"Average time: {average_time} seconds per turn")
                 print(f"Estimated Total Time: {average_time * PART_TWO_MOVES / 60 / 60} hours")
                 print(f"Estimated Finish Time: {finish_time}")
-                print(f"\n==================================================================\n")
+                print("\n==================================================================\n")
 
             cups = self.move(cups, number_of_cups)
 
