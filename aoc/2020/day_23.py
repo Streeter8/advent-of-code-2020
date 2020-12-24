@@ -1,4 +1,4 @@
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from timeit import timeit
 from typing import List
 
@@ -41,10 +41,13 @@ class AocTwentyThree:
                 delta = self.now - beginning
                 total_time = delta.seconds + (delta.microseconds / 1000000)
                 average_time = total_time / _turn
+                finish_time = (self.now + timedelta(seconds=average_time) * (PART_TWO_MOVES - _turn)).isoformat()
 
                 print(f"Executing turn {_turn}: Turns remaining: {PART_TWO_MOVES - _turn}")
                 print(f"Total time to execute {_turn} turns: {total_time} seconds")
                 print(f"Average time: {average_time} seconds per turn")
+                print(f"Estimated Total Time: {average_time * PART_TWO_MOVES / 60 / 60} hours")
+                print(f"Estimated Finish Time: {finish_time}")
                 print(f"\n==================================================================\n")
 
             cups = self.move(cups, number_of_cups)
@@ -104,7 +107,7 @@ class AocTwentyThree:
 def main():
     aoc = AocTwentyThree()
     print(f"Part one took {timeit(aoc.part_one, number=1)} seconds to execute")
-    print(f"Part two took {timeit(aoc.part_two, number=1)} seconds to execute")
+    # print(f"Part two took {timeit(aoc.part_two, number=1)} seconds to execute")
 
 
 if __name__ == "__main__":
